@@ -1,0 +1,140 @@
+<html>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width = device-width initial-scale=1.0">
+    <link rel="icon" href="favicon.ico">
+    <style>
+        * {
+	        box-sizing: border-box;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            }
+        .app-bar{background-color: rgb(35, 198, 244);
+           
+           padding: 10px;
+           color: white;
+            margin:0;
+            box-shadow: 0 6px 10px black;}
+        body{margin:0;
+            background-color: rgb(145, 225, 241);
+            
+             }
+        form{margin: 0px;padding: 100px;}
+        .container{padding:10px;
+                    background-color:rgb(255, 255, 255);
+                    margin:30px 500px 10px 500px;
+                    box-shadow: 0 6px 10px black;
+                    display: flex;
+                    border-radius:30px ;
+                    }
+        label{font-size: 18px;
+                    margin:0 0 15px 0}
+        input{font-size: 17px;
+                margin:0 0 15px 0;
+                box-shadow: 0px 4px 8px rgba(26, 24, 24, 0.473);
+                border:none;
+                border-radius:10px ;
+                background-color:rgb(202, 199, 199);}
+        
+        button{width: 100px;
+               height: 10px;padding: 10px;
+               text-align:center;
+               margin:0px 0px 0px 100px;
+               display: flex;
+               justify-content: center;
+               align-items: center;
+               font-size: 15px;
+               margin:20px 0px 0px 0px;
+                   background-color: rgb(35, 198, 244);
+                }
+        button:hover{background-color: rgb(76, 147, 227);}
+        
+        @media (max-width:600px){
+            body{padding: 0px;
+                margin: 0px 0px 10px 0px;}
+            .container{padding:50px;
+                    background-color:rgb(255, 255, 255);
+                    margin:50px 80px 10px 100px;
+                    box-shadow: 0 6px 10px black;
+                    display: block;
+                    height: 600px; ;
+                    }
+            label{margin:0px 0px 20px -110px;
+                        font-size: 18px;
+                        }
+            input{margin:0px 0px 20px -110px;
+                    border:none;
+                    background-color:rgb(202, 199, 199);}
+            button{margin:20px 0px 0px -50px;
+                   background-color:  rgb(35, 198, 244);}
+            .wel{margin: -100px 0px 50px -70px;}
+        }
+        .wel{
+            font-size: 30px;font-family:'Times New Roman';text-align: center;
+        }
+    </style>
+    <head>
+    <title>REGISTER</title>
+    <div class="app-bar">
+        
+        <h1 style="text-align: center; " >WEB SURVEY</h1>
+        
+    </div>
+    </head>
+    <body>
+    <div class="container">
+
+        <form onsubmit="return validate()" action="C:\Users\sreeh\OneDrive\Desktop\web programming\log.html">
+            <p class="wel" >Welcome!!!</p>
+            <label for = "username" id="useerr">Username: </label><br>
+            <input type = "text" id = "username" required><br>
+            
+            <label for = "dob">D.O.B:  <br> </label>
+            <input type = "date" id = "dob" required><br>
+
+            <label for = "email" id = "emailerr">Email id:  </label><br>
+        
+            <input type = "email" id = "email" required><br>
+            <label for = "pass" id = "paw">Password:</label><br>
+            <input type = "password" id = "pass" required><br>
+            <label for = "repass" id = "repaw">Confirm:   </label><br>
+            <input type = "password" id = "repass" required><br>
+            <span id = "error"></span>
+            
+            <button type ="submit" >Submit</button>
+            <button type ="reset"  >Reset</button>
+        </form>
+    </div>
+    </body>
+    <script>
+        function validate(){
+            var username = document.getElementById("username").value;
+            var emailid = document.getElementById("email").value;
+            var pw = document.getElementById("pass").value;
+            var repw = document.getElementById("repass").value;
+            var alpha = /^[a-zA-Z\s]+$/;
+            var mail = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/;
+            var alpnum = /^[a-zA-Z0-9\s]+$/;
+            if (alpha.test(username)===false){
+                document.getElementById("useerr").innerHTML += "<span style='color:red;'>*</span>";
+                document.getElementById("error").innerHTML ="<span style = 'color:red;'>invalid *</span>";
+                return false;
+            }
+            if (mail.test(emailid)===false){
+                document.getElementById("emailerr").innerHTML += "<span style='color:red;'>*</span>";
+                document.getElementById("error").innerHTML ="<span style = 'color:red;'>invalid *</span>";
+                return false;
+            }
+            if (alpnum.test(pw)===false){
+                document.getElementById("paw").innerHTML += "<span style='color:red;'>*</span>";
+                document.getElementById("error").innerHTML ="<span style = 'color:red;'>* only strong password</span>";
+                return false;
+            }
+            if (pw !== repw){
+                document.getElementById("repaw").innerHTML += "<span style='color:red;'>*</span>";
+                document.getElementById("error").innerHTML = "<span style='color:red;'>* Passwords do not match</span>";
+                return false;
+            }
+        }
+        </script>
+    
+</html>
